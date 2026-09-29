@@ -1,0 +1,10 @@
+{
+  "name": "webgl-terrain-lod",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "WebGL procedural terrain with quadtree LOD, erosion, worker-based generation and VRAM degradation",
+  "scripts": {
+    "test": "node --test test/",
+    "serve": "python3 -m http.server 8080"
+  }
+}

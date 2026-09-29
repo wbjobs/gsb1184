@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>WebGL 地形 LOD 演示</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+  #gl { width: 100vw; height: 100vh; display: block; }
+  #panel {
+    position: fixed; top: 8px; left: 8px; color: #fff; font: 12px/1.5 monospace;
+    background: rgba(0,0,0,.55); padding: 10px 12px; border-radius: 6px; user-select: none;
+  }
+  #hud { white-space: pre; margin-bottom: 6px; color: #8f8; }
+  #panel label { display: inline-block; margin-right: 10px; cursor: pointer; }
+  #panel select, #panel button { font: 12px monospace; }
+  #help { position: fixed; bottom: 8px; left: 8px; color: #aaa; font: 12px monospace;
+          background: rgba(0,0,0,.4); padding: 6px 10px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<canvas id="gl"></canvas>
+<div id="panel">
+  <div id="hud">loading…</div>
+  <div>
+    <label><input type="checkbox" id="opt-lod"> LOD</label>
+    <label><input type="checkbox" id="opt-worker"> Worker</label>
+    <label><input type="checkbox" id="opt-erosion"> 侵蚀</label>
+    <label><input type="checkbox" id="opt-debuglod"> LOD 着色</label>
+    <label><input type="checkbox" id="opt-degrade"> 强制降级</label>
+  </div>
+  <div style="margin-top:4px">
+    显存预算
+    <select id="opt-budget">
+      <option value="256">256MB</option>
+      <option value="128" selected>128MB</option>
+      <option value="32">32MB</option>
+      <option value="8">8MB</option>
+      <option value="2">2MB</option>
+    </select>
+    <button id="btn-report">导出性能报告</button>
+  </div>
+</div>
+<div id="help">点击画面锁定鼠标 · WASD 移动 · Q/E 升降 · Shift 加速 · 鼠标转向</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
